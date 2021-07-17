@@ -1,0 +1,22 @@
+{
+  "name": "cortex-mock",
+  "version": "1.0.0",
+  "description": "A mock websocket server for the Emotiv Cortex Mental Command API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metalogica/cortex-mock.git"
+  },
+  "keywords": [
+    "neurotech"
+  ],
+  "author": "metalogica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metalogica/cortex-mock/issues"
+  },
+  "homepage": "https://github.com/metalogica/cortex-mock#readme"
+}
