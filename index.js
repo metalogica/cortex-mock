@@ -1,8 +1,13 @@
 const WebSocket = require('ws');
 
+// example client inbound JSON RPC
+// { "type" : "neutral", "magnitude" : "0.0"  }
+
 const parseMentalCommand = (message) => {
   try {
+    message = JSON.parse(message)
     const { type, magnitude } = message;
+
     return {
       "com": [ type, magnitude ],
       "sid":
@@ -10,14 +15,11 @@ const parseMentalCommand = (message) => {
       "time": new Date().getTime()
     }
   } catch (error) {
-    console.log(`Invalid mental command; please provide a {message} argument with a mental command type and magnitude. Error: ${error}`)
+    console.log(`Invalid mental command; please provide a {message} argument with a mental command type and magnitude.\nError: ${error}`)
   }
 }
 
-const wss = new WebSocket.Server({
-  port: 4242
-});
-
+const wss = new WebSocket.Server({ port: 4242 });
 console.log('Cortex Mock Web Socket Server instantiated.');
 
 wss.on('connection', function connection(ws){
@@ -25,8 +27,7 @@ wss.on('connection', function connection(ws){
 
   ws.on('message', function incoming(message){
     const output = parseMentalCommand(message);
-    console.log(`Received: ${message}.\nOutputting: ${output}`);
+    // console.log(`Received: ${message}. Outputting: ${JSON.stringify(output)}`);
+    ws.send(JSON.stringify(output))
   });
-
-  ws.send('Connected.')
 });
