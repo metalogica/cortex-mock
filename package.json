@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/metalogica/cortex-mock/issues"
   },
-  "homepage": "https://github.com/metalogica/cortex-mock#readme"
+  "homepage": "https://github.com/metalogica/cortex-mock#readme",
+  "dependencies": {
+    "ws": "^7.5.3"
+  }
 }
